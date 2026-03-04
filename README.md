@@ -23,7 +23,7 @@
 * **Thiffany Morais Vieira da Silva**
 
 
-##📚 Professores Orientadores
+## 📚 Professores Orientadores
 
 * **Eduardo Savino Gomes**
 * **Lucy Mari Tabuti**
