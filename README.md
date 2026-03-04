@@ -25,11 +25,11 @@
 
 ##📚 Professores Orientadores
 
-Eduardo Savino Gomes
-Lucy Mari Tabuti
-Maurício Lopes da Cunha
-Rodnil da Silva Moreira Lisboa
-Victor Bruno Alexander Rosetti de Quiroz
+* **Eduardo Savino Gomes**
+* **Lucy Mari Tabuti**
+* **Maurício Lopes da Cunha**
+* **Rodnil da Silva Moreira Lisboa**
+* **Victor Bruno Alexander Rosetti de Quiroz**
 
 
 ## 🍕 1. Apresentação do Projeto
