@@ -14,7 +14,7 @@
 
 ## 👥 Grupo: TechTonics
 
-** Integrantes **
+**Integrantes**
 
 * **Fernanda Loura da Silva**
 * **Gustavo Henrique Da Silva Santos**
