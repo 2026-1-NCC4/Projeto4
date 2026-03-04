@@ -1,5 +1,5 @@
-# Projeto4
-Projeto 4
+# Projeto4 - 
+
 ## FECAP - Fundação de Comércio Álvares Penteado
 
 <p align="center">
@@ -16,7 +16,7 @@ Projeto 4
 > **Curso:** Ciência da Computação
 > **Tema:** Dashboard estratégico e operacional com Ciência de Dados, Usabilidade e Atualização em Tempo Real.
 
-## 👥 Integrantes: TechSnack Dev Team
+## 👥 Integrantes: TechTonics
 * **Fernanda Loura da Silva**
 * **Gustavo Henrique Da Silva Santos**
 * **Lucas Alves Bernardo**
