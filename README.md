@@ -11,18 +11,23 @@
 ---
 
 # Dashboard de Indicadores Cannoli - Foodtech
+---
+## 👥 Grupo: TechTonics
+---
+##  Integrantes
 
-> **Projeto Interdisciplinar - 4º Semestre (2026)**
-> **Curso:** Ciência da Computação
-> **Tema:** Dashboard estratégico e operacional com Ciência de Dados, Usabilidade e Atualização em Tempo Real.
-
-## 👥 Integrantes: TechTonics
 * **Fernanda Loura da Silva**
 * **Gustavo Henrique Da Silva Santos**
 * **Lucas Alves Bernardo**
 * **Nicolly da Silva Soares**
 * **Thiffany Morais Vieira da Silva**
 
+---
+##📚 Professores Orientadores
+-
+-
+-
+Victor Bruno Alexander Rosetti de Quiroz
 ---
 
 ## 🍕 1. Apresentação do Projeto
