@@ -8,12 +8,12 @@
   </a>
 </p>
 
----
+
 
 # Dashboard de Indicadores Cannoli - Foodtech
----
+
 ## 👥 Grupo: TechTonics
----
+
 ##  Integrantes
 
 * **Fernanda Loura da Silva**
@@ -22,13 +22,15 @@
 * **Nicolly da Silva Soares**
 * **Thiffany Morais Vieira da Silva**
 
----
+
 ##📚 Professores Orientadores
--
--
--
+
+Eduardo Savino Gomes
+Lucy Mari Tabuti
+Maurício Lopes da Cunha
+Rodnil da Silva Moreira Lisboa
 Victor Bruno Alexander Rosetti de Quiroz
----
+
 
 ## 🍕 1. Apresentação do Projeto
 A **Cannoli** é uma startup foodtech que integra CRM, automação de engajamento e cardápio digital. O objetivo deste projeto é desenvolver um **Dashboard Web** capaz de apoiar decisões estratégicas e operacionais, permitindo que a Cannoli e seus restaurantes parceiros visualizem dados de vendas, comportamento de clientes e eficácia de campanhas em tempo real (ou via simulação realista).
