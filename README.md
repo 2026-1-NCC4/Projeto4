@@ -60,8 +60,8 @@ Conforme os requisitos das disciplinas de Engenharia de Software e Arquitetura d
 │   └── 📁 notebooks/ (Scripts Python/Colab para Ciência de Dados)
 │
 └── 📄 README.md
-
-## 📋 Licença/License
+```
+##📋 Licença/License
 
 A licença desse projeto é a <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons BY-SA 4.0<a/>.
 
@@ -70,4 +70,3 @@ A licença desse projeto é a <a href="https://creativecommons.org/licenses/by-s
 
 Aqui estão as referências usadas no projeto.
 
-1. 
