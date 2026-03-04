@@ -1,4 +1,4 @@
-# Projeto4 - 
+# Projeto4
 
 ## FECAP - Fundação de Comércio Álvares Penteado
 
