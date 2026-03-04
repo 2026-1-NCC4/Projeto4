@@ -1,10 +1,14 @@
 # Projeto4
 Projeto 4
-# FECAP - Fundação de Comércio Álvares Penteado
+## FECAP - Fundação de Comércio Álvares Penteado
 
 <p align="center">
-  <img src="https://camo.githubusercontent.com/f792fb9773905cab093295f28e2251e854dec3210920fb641c8acaab068f701c/68747470733a2f2f656e637279707465642d74626e302e677374617469632e636f6d2f696d616765733f713d74626e3a414e6439476352685a5072526138394b6d61305a5a6f67786d3070692d74436e5f544c4b65484756787977702d4c584146475233423144506f75414a5948674b5a4756305854456634414526757371703d434155" alt="FECAP Logo" width="200">
+  <a href="https://www.fecap.br/">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhZPrRa89Kma0ZZogxm0pi-tCn_TLKeHGVxywp-LXAFGR3B1DPouAJYHgKZGV0XTEf4AE&usqp=CAU" alt="FECAP - Fundação de Comércio Álvares Penteado" border="0">
+  </a>
 </p>
+
+---
 
 # Dashboard de Indicadores Cannoli - Foodtech
 
@@ -13,11 +17,11 @@ Projeto 4
 > **Tema:** Dashboard estratégico e operacional com Ciência de Dados, Usabilidade e Atualização em Tempo Real.
 
 ## 👥 Integrantes: TechSnack Dev Team
-* **Lucas Alves Bernardo** (Líder) - RA: lucas.bernardo
-* **Nicolly da Silva Soares** - RA: nicolly.soares
-* **Thiffany Morais Vieira da Silva** - RA: thiffany.morais
-* **Fernanda Loura da Silva** - RA: fernanda.silva19
-* **Gustavo Henrique Da Silva Santos** - RA: gustavo.santos12
+* **Fernanda Loura da Silva**
+* **Gustavo Henrique Da Silva Santos**
+* **Lucas Alves Bernardo**
+* **Nicolly da Silva Soares**
+* **Thiffany Morais Vieira da Silva**
 
 ---
 
