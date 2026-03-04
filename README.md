@@ -29,7 +29,7 @@
 * **Lucy Mari Tabuti**
 * **Maurício Lopes da Cunha**
 * **Rodnil da Silva Moreira Lisboa**
-* **Victor Bruno Alexander Rosetti de Quiroz**
+* **[Victor Bruno Alexander Rosetti de Quiroz](https://www.linkedin.com/in/victorbarq/)**
 
 
 ## 🍕 1. Apresentação do Projeto
