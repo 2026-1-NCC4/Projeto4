@@ -23,9 +23,12 @@
 * **[Thiffany Morais Vieira da Silva](https://www.linkedin.com/in/thiffany-morais/)**
 
 
-## 📚 Professores Orientadores
+## 📚 Professor Orientador
 
-* **Eduardo Savino Gomes**
+* **[Eduardo Savino Gomes](https://www.linkedin.com/in/eduardo-savino)**
+
+### 📔 Orientadores Complementares
+
 * **[Lucy Mari Tabuti](https://www.linkedin.com/in/lucymari/)**
 * **[Maurício Lopes da Cunha](https://www.linkedin.com/in/maureen-leung-5630492a/)**
 * **[Rodnil da Silva Moreira Lisboa](https://www.linkedin.com/in/professorrodnil/)**
@@ -61,7 +64,8 @@ Conforme os requisitos das disciplinas de Engenharia de Software e Arquitetura d
 │
 └── 📄 README.md
 ```
-##📋 Licença/License
+
+## 📋 Licença/License
 
 A licença desse projeto é a <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons BY-SA 4.0<a/>.
 
