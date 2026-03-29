@@ -22,8 +22,9 @@
 * **[Nicolly da Silva Soares](https://www.linkedin.com/in/nicolly-silva-soares-10b627171/)**
 * **[Thiffany Morais Vieira da Silva](https://www.linkedin.com/in/thiffany-morais/)**
 
+---
 
-## 📚 Professor Orientador
+### 📚 Professor Orientador
 
 * **[Eduardo Savino Gomes](https://www.linkedin.com/in/eduardo-savino)**
 
