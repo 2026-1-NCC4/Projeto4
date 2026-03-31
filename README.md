@@ -44,7 +44,7 @@ O dashboard explora princípios de **Ciência de Dados** (modelagem, métricas e
 ---
 
 ## 🛠 2. Estrutura de Pastas
-Conforme os requisitos das disciplinas de Engenharia de Software e Arquitetura de Sistemas:
+Conforme os requisitos das disciplinas:
 ```text
 📁 Documentos
  └── 📁 ES_e_ML
