@@ -46,24 +46,19 @@ O dashboard explora princípios de **Ciência de Dados** (modelagem, métricas e
 ## 🛠 2. Estrutura de Pastas
 Conforme os requisitos das disciplinas de Engenharia de Software e Arquitetura de Sistemas:
 ```text
-📁 Projeto Interdisciplinar 2026
-│
-├── 📁 documentos/
-│   ├── 📁 entrega-1/
-│   │   └── 📄 Análise Descritiva e KPIs.pdf
-│   └── 📁 entrega-2/
-│       └── 📄 Análise de Regressão e Financeiro.pdf
-│
-├── 📁 ES_e_ML/ (Engenharia de Software e Modelagem)
-│   ├── 📄 PI4_EngenhariaRequisitos_Cannoli_TechTonics.pdf
-│   └── 📄 Diagramas_UML_Design_Software.pdf
-│
-├── 📁 src/
-│   ├── 📁 backend/ (API, Autenticação e Processamento)
-│   ├── 📁 frontend/ (Interface Web e Dashboards)
-│   └── 📁 notebooks/ (Scripts Python/Colab para Ciência de Dados)
-│
-└── 📄 README.md
+📁 Documentos
+ └── 📁 ES_e_ML
+ └── 📁 Entrega_1
+     ├── 📁 Analise_Inferencial_de_Dados
+     ├── 📁 Ciencia_de_Dados
+     └── 📁 Contabilidade_e_Financas
+ └── 📁 Entrega_2
+ 📁 src
+ └── 📁 backend
+ └── 📁 frontend
+ └── 📁 notebooks
+ 📄 .gitignore
+ 📄 README.md
 ```
 
 ## 📋 Licença/License
