@@ -18,14 +18,10 @@ def render_header(store, storeorder):
 
     # estilização do header
     with st.container():
-        st.markdown(
-            '<style>div.block-container{padding-top:2rem;}</style>',
-            unsafe_allow_html=True
-        )
+        st.markdown('<style>div.block-container{padding-top:2rem;}</style>',unsafe_allow_html=True)
         st.markdown('<div class="header">', unsafe_allow_html=True)
-
-        col1, col2, col3, col4 = st.columns([2, 2, 2, 2])
-
+        col1,col2,col3,col4 = st.columns([2,2,2,2])
+        #titulo
         with col1:
             st.markdown("### Canolli Foodtech")
 
@@ -34,6 +30,7 @@ def render_header(store, storeorder):
             if "periodo" not in st.session_state:
                 st.session_state.periodo = "Último mês"
 
+            #coisa de doido
             periodo = st.selectbox(
                 "Período",
                 [
@@ -67,17 +64,17 @@ def render_header(store, storeorder):
 
         st.markdown('</div>', unsafe_allow_html=True)
 
-    # retorno dos dados utilizados pelas funções
+    # devolve as infos entregues pelas funções
     return periodo, restaurante, df_loja
 
 
 # SIDEBAR PADRONIZADA
 def render_sidebar():
-    # estado inicial = app.py
+    # inicia em finance
     if "menu_ativo" not in st.session_state:
         st.session_state.menu_ativo = "Finance"
     
-    # lógica de mudar de menu
+    # logica pra muda o menu
     def mudar_menu(menu):
         st.session_state.menu_ativo = menu
 
@@ -124,11 +121,9 @@ def render_sidebar():
     </style>
     """, unsafe_allow_html=True)
 
-    # botões
+    # botooes que piscam diferente :D
     for menu in PAGINAS.keys():
-        if st.sidebar.button(
-            menu,
-            use_container_width=True,
+        if st.sidebar.button(menu,use_container_width=True,
             type="primary" if st.session_state.menu_ativo == menu else "secondary",
         ):
             st.session_state.menu_ativo = menu
