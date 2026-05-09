@@ -7,7 +7,8 @@ import cards
 import funcs
 import menu
 
-
+#cache no streamlit que faz não carregar por 100 milhões de anos um calculo sempre que atualiza 
+#  >:(
 @st.cache_data
 def carregar_dados():
     return {
@@ -70,4 +71,4 @@ grafico = funcs.grafico_receita_mensal(df_mes)
 
 st.altair_chart(grafico, use_container_width=True)
 
-st.sidebar.image("Cat.webp")
+st.sidebar.image("imagens/cat.gif")
