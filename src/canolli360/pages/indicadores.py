@@ -22,7 +22,7 @@ menu.render_sidebar()
 
 st.title("Demonstração dos índices")
 
-st.header("1.0 - Estrutura de receira")
+st.header("1.0 - Estrutura de receita")
 
 #region 1.1
 
