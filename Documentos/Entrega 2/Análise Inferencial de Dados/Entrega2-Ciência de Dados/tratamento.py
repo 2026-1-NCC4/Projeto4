@@ -87,6 +87,11 @@ print(f"total Valor STORE ORDER: {total_valor_storeorder}")
 taxa_conversao = (total_vendas_campanha / total_vendas) * 100
 print(f"taxa de conversao: {taxa_conversao}")
 
+# ===========================
+# 2. TAXA DE CONVERSÃO (VALOR)
+# ===========================
+taxa_conversao_valor = (total_valor_campanhas / total_valor_storeorder) * 100
+print(f"taxa de conversao valor: {taxa_conversao_valor}")
 
 # ===========================
 # MENSAGENS POR CAMPANHA

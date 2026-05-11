@@ -48,14 +48,16 @@ valor_total = (
 if loja_selecionada == 'Todas as lojas':
     # Cria colunas para métricas
     venda1, venda2, mensagens1 = st.columns(3)
-    valor1, valor2 = st.columns(2)
-
+    valor1, valor2= st.columns(2)
+    conversao1, conversao2 = st.columns(2)
     # Métricas gerais do dataset inteiro
-    venda1.metric("Vendas Totais das Campanhas", f"{tratamento.total_vendas_campanha:,.0f}")
-    valor1.metric("Valor das Vendas das Campanhas", f"{tratamento.total_valor_campanhas:,.2f} R$")
-    venda2.metric("Vendas Totais Lojas", f"{tratamento.total_vendas:,.0f}")
-    valor2.metric("Valor das Vendas Lojas", f"{tratamento.total_valor_storeorder:,.2f} R$")
+    venda1.metric("Vendas Totais das Campanhas", f"{tratamento.total_vendas_campanha}")
+    valor1.metric("Valor das Vendas das Campanhas", f"{valor_formatado(tratamento.total_valor_campanhas)}")
     mensagens1.metric("Mensagens Totais", f"{tratamento.total_mensagens:,.0f}")
+    venda2.metric("Vendas Totais Lojas", f"{tratamento.total_vendas}")
+    valor2.metric("Valor das Vendas Lojas", f"{valor_formatado(tratamento.total_valor_storeorder)}")
+    conversao1.metric("Taxa de Conversão", f"{tratamento.taxa_conversao:,.2f}%")
+    conversao2.metric("Taxa de conversão por Valor", f"{tratamento.taxa_conversao_valor:,.2f}%")
 
 # ===========================
 # DASHBOARD - LOJA ESPECÍFICA
