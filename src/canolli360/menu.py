@@ -11,16 +11,27 @@ PAGINAS = {
 
 # HEADER PADRONIZADO
 def render_header(store, storeorder):
-    # preparando daods usados para filtro de loja
+    # organizando infos de loja
     lista_lojas = store["name"].dropna().unique().tolist()
     lista_lojas.insert(0, "Todas")
     map_store = dict(zip(store['name'], store['id']))
+
+    #organizando infos de canal
+    lista_canal = storeorder["saleschannel"].dropna().unique().tolist()
+    lista_canal.insert(0, "Todos")
+    map_canal = dict(zip(storeorder['saleschannel'], storeorder['saleschannel']))
+
+    #organizando infos de pedido
+    lista_pedido = storeorder["ordertype"].dropna().unique().tolist()
+    lista_pedido.insert(0, "Todos")
+    map_pedido = dict(zip(storeorder['ordertype'], storeorder['ordertype']))
 
     # estilização do header
     with st.container():
         st.markdown('<style>div.block-container{padding-top:2rem;}</style>',unsafe_allow_html=True)
         st.markdown('<div class="header">', unsafe_allow_html=True)
-        col1,col2,col3,col4 = st.columns([2,2,2,2])
+        col1,col2,col3,col4,col5 = st.columns([2,2,2,2,2])
+        
         #titulo
         with col1:
             st.markdown("### Canolli Foodtech")
@@ -30,7 +41,6 @@ def render_header(store, storeorder):
             if "periodo" not in st.session_state:
                 st.session_state.periodo = "Último mês"
 
-            #coisa de doido
             periodo = st.selectbox(
                 "Período",
                 [
@@ -62,10 +72,38 @@ def render_header(store, storeorder):
             else:
                 df_loja = storeorder.copy()
 
+        # filtro de canal
+        with col4:
+            if "canal" not in st.session_state:
+                st.session_state.canal = "Todos"
+
+            canal = st.selectbox(
+                "Canal de Venda",
+                lista_canal,
+                key="canal"
+            )
+
+            if canal != "Todos":
+                df_loja = df_loja[df_loja['saleschannel'] == map_canal[canal]]
+        
+        #filtro de pedido
+        with col5:
+            if "pedido" not in st.session_state:
+                st.session_state.pedido = "Todos"
+
+            pedido = st.selectbox(
+                "Tipo de Pedido",
+                lista_pedido,
+                key="pedido"
+            )
+
+            if pedido != "Todos":
+                df_loja = df_loja[df_loja['ordertype'] == map_pedido[pedido]]
+        
         st.markdown('</div>', unsafe_allow_html=True)
 
     # devolve as infos entregues pelas funções
-    return periodo, restaurante, df_loja
+    return periodo, restaurante, canal, pedido, df_loja
 
 
 # SIDEBAR PADRONIZADA

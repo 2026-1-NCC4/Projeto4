@@ -8,7 +8,6 @@ import funcs
 import menu
 
 #cache no streamlit que faz não carregar por 100 milhões de anos um calculo sempre que atualiza 
-#  >:(
 @st.cache_data
 def carregar_dados():
     return {
@@ -27,7 +26,7 @@ customer = dados["customer"]
 storeorder = dados["storeorder"]
 
 
-periodo, restaurante, df_loja = menu.render_header(store, storeorder)
+periodo, restaurante, canal, pedido, df_loja = menu.render_header(store, storeorder)
 
 # FILTRO
 df_filtrado = funcs.filtrar_periodo(df_loja, periodo, 'createdat')

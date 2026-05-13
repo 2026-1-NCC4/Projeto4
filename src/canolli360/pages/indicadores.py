@@ -16,7 +16,7 @@ campaignxorder = pd.read_csv("dados/CAMPAIGNxORDER.CSV", sep=",")
 
 status16 = storeorder[storeorder['status'] == 16]
 # renderização do menu
-periodo, restaurante, df_loja = menu.render_header(store, storeorder)
+periodo, restaurante, canal, pedido, df_loja = menu.render_header(store, storeorder)
 menu.render_sidebar()
 
 
@@ -459,6 +459,7 @@ st.markdown(f"**Receita por mensagem convertida**: {funcs.formatar_moeda(receita
 #endregion
 
 st.markdown("---")
+
 
 st.header("**7.0 - Recorrência e Valor do Cliente**")
 
