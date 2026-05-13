@@ -1,4 +1,5 @@
 import streamlit as st
+import pandas as pd
 
 # mapeamento entre nome e página
 PAGINAS = {
@@ -11,17 +12,25 @@ PAGINAS = {
 
 # HEADER PADRONIZADO
 def render_header(store, storeorder):
+    
+    # organizando infos de período
+    datas = pd.to_datetime(storeorder['createdat'], format='mixed', utc=True).dt.to_period('M')
+    lista_periodo = ["Todos os períodos"] + sorted(
+        datas.astype(str).unique().tolist(), 
+        reverse=True
+    )
+    
     # organizando infos de loja
     lista_lojas = store["name"].dropna().unique().tolist()
     lista_lojas.insert(0, "Todas")
     map_store = dict(zip(store['name'], store['id']))
 
-    #organizando infos de canal
+    # organizando infos de canal
     lista_canal = storeorder["saleschannel"].dropna().unique().tolist()
     lista_canal.insert(0, "Todos")
     map_canal = dict(zip(storeorder['saleschannel'], storeorder['saleschannel']))
 
-    #organizando infos de pedido
+    # organizando infos de pedido
     lista_pedido = storeorder["ordertype"].dropna().unique().tolist()
     lista_pedido.insert(0, "Todos")
     map_pedido = dict(zip(storeorder['ordertype'], storeorder['ordertype']))
@@ -32,33 +41,25 @@ def render_header(store, storeorder):
         st.markdown('<div class="header">', unsafe_allow_html=True)
         col1,col2,col3,col4,col5 = st.columns([2,2,2,2,2])
         
-        #titulo
+        # titulo
         with col1:
             st.markdown("### Canolli Foodtech")
 
         # filtro de período
         with col2:
-            if "periodo" not in st.session_state:
-                st.session_state.periodo = "Último mês"
+            if "periodo" not in st.session_state or st.session_state.periodo not in lista_periodo:
+                st.session_state.periodo = "Todos os períodos"
 
             periodo = st.selectbox(
                 "Período",
-                [
-                    "Última semana",
-                    "Último mês",
-                    "Último bimestre",
-                    "Último trimestre",
-                    "Último semestre",
-                    "Último ano",
-                    "Todo o período"
-                ],
+                lista_periodo,
                 key="periodo"
             )
 
         # filtro de loja
         with col3:
             if "restaurante" not in st.session_state:
-                st.session_state.restaurante = "Todas"
+                st.session_state.restaurante = "Todas as lojas"
 
             restaurante = st.selectbox(
                 "Loja",
@@ -75,7 +76,7 @@ def render_header(store, storeorder):
         # filtro de canal
         with col4:
             if "canal" not in st.session_state:
-                st.session_state.canal = "Todos"
+                st.session_state.canal = "Todos os canais"
 
             canal = st.selectbox(
                 "Canal de Venda",
@@ -89,16 +90,22 @@ def render_header(store, storeorder):
         #filtro de pedido
         with col5:
             if "pedido" not in st.session_state:
-                st.session_state.pedido = "Todos"
+                st.session_state.pedido = "Todos os pedidos"
 
             pedido = st.selectbox(
-                "Tipo de Pedido",
+                "Tipo de pedido",
                 lista_pedido,
                 key="pedido"
             )
 
             if pedido != "Todos":
                 df_loja = df_loja[df_loja['ordertype'] == map_pedido[pedido]]
+
+        if periodo != "Todos os períodos":
+            periodo_selecionado = pd.Period(periodo, freq='M')
+            df_loja = df_loja[
+                pd.to_datetime(df_loja['createdat'], format='mixed', utc=True).dt.to_period('M') == periodo_selecionado
+            ]
         
         st.markdown('</div>', unsafe_allow_html=True)
 
