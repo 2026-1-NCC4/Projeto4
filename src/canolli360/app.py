@@ -69,5 +69,3 @@ st.caption("Evolução da receita ao longo do tempo")
 grafico = funcs.grafico_receita_mensal(df_mes)
 
 st.altair_chart(grafico, use_container_width=True)
-
-st.sidebar.image("imagens/cat.gif")
