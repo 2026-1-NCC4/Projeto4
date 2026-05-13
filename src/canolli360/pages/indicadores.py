@@ -460,14 +460,187 @@ st.markdown(f"**Receita por mensagem convertida**: {funcs.formatar_moeda(receita
 
 st.markdown("---")
 
-st.header("**6.0 - Crescimento e Sazonalidade**")
+st.header("**7.0 - Recorrência e Valor do Cliente**")
 
-#region 6.1
+#region 7.1
 
-status16['scheduledat'] = pd.to_datetime(status16['scheduledat'], format='ISO8601')
-status16['ano_mes'] = status16['scheduledat'].dt.to_period('M')
-mes_inicio = status16['ano_mes'].min()
-receita_inicio = status16.loc[status16['ano_mes'] == mes_inicio, 'totalamount'].sum()
-st.markdown(f"**Receita até 2022**: {funcs.formatar_moeda(receita_inicio)}")
+st.subheader("**7.1** - ***Taxa de Recorrência***")
+
+st.markdown(f"**Clientes com pedido concluído**: {cliente_concluido} pessoas")
+
+pedido_cliente = status16.groupby('customerid')['id'].count()
+recorrentes_index = (pedido_cliente[pedido_cliente > 1])
+recorrentes = recorrentes_index.count()
+st.markdown(f"**Clientes recorrentes**: {recorrentes} pessoas")
+
+taxa_recorrencia = (recorrentes / cliente_concluido) * 100
+st.markdown(f"**Taxa de Recorrência**: {taxa_recorrencia:.2f}%")
+
+#endregion
+
+st.markdown("---")
+
+#region 7.2
+
+st.subheader("**7.2** - ***Participação dos Recorrentes na Receita***")
+
+recorrente_receita = status16.loc[status16['customerid'].isin(recorrentes_index.index), 'totalamount'].sum()
+st.markdown(f"**Receita dos clientes recorrentes**: {funcs.formatar_moeda(recorrente_receita)}")
+
+percent_recorrentes = (recorrente_receita / receita) * 100
+st.markdown(f"**Porcentagem sobre receita total**: {percent_recorrentes:.2f}%")
+
+nrecorrente_receita = receita - recorrente_receita
+st.markdown(f"**Receita dos clientes não recorrentes**: {funcs.formatar_moeda(nrecorrente_receita)}")
+
+percent_nrecorentes = (nrecorrente_receita / receita) * 100
+st.markdown(f"**Porcentagem sobre receita total**: {percent_nrecorentes:.2f}%")
+
+#endregion
+
+st.markdown("---")
+
+#region 7.3
+
+st.subheader("**7.3** - ***Frequência Média de Compra***")
+
+tds_pedido_cliente = qnt_pedido / cliente_concluido
+st.markdown(f"**Frequência média de compra por cliente**: {tds_pedido_cliente:.2f} pedidos/cliente")
+
+nrecorrente = cliente_concluido - recorrentes
+tds_pedido_nrecorente = (qnt_pedido - nrecorrente) / recorrentes
+st.markdown(f"**Frequência média de compra por cliente recorrente**: {tds_pedido_nrecorente:.2f} pedidos/cliente recorrente")
+
+#endregion
+
+st.markdown("---")
+
+#region 7.4
+
+st.subheader("**7.4** - ***ARPU Diferenciado***")
+
+arpu_recorrente = recorrente_receita / recorrentes
+st.markdown(f"**ARPU dos clientes recorrentes**: {funcs.formatar_moeda(arpu_recorrente)}")
+
+arpu_nrecorrente = nrecorrente_receita / nrecorrente
+st.markdown(f"**ARPU dos clientes não recorrentes**: {funcs.formatar_moeda(arpu_nrecorrente)}")
+
+multiplicador_arpu = arpu_recorrente / arpu_nrecorrente
+st.markdown(f"**Multiplicador de ARPU**: {multiplicador_arpu:.2f}x")
+
+#endregion
+
+st.markdown("---")
+
+
+st.header("**8.0 - Margem e Ponto de Equilibrio**")
+
+#region 8.1
+
+st.subheader("**8.1** - ***Margem de Contribuição Estimada***")
+
+st.markdown(f"**Receita Total**: {funcs.formatar_moeda(receita)}")
+
+cmv = receita * 0.32
+st.markdown(f"**CMV estimado**: {funcs.formatar_moeda(cmv)}")
+
+comissao = receita * 0.18
+st.markdown(f"**Comissão estimada**: {funcs.formatar_moeda(comissao)}")
+
+op_variavel = receita * 0.08
+st.markdown(f"**Operação variável estimada**: {funcs.formatar_moeda(op_variavel)}")
+
+margem_contrib = receita - cmv - comissao - op_variavel
+st.markdown(f"**Margem de contribuição estimada**: {funcs.formatar_moeda(margem_contrib)}")
+
+porcent_margem = (margem_contrib / receita) * 100
+st.markdown(f"**Porcentagem da margem sobre receita**: {porcent_margem:.2f}%")
+
+#endregion
+
+st.markdown("---")
+
+#region 8.2
+
+st.subheader("**8.2** - ***DRE Gerencial Sintético***")
+
+st.markdown(f"**Receita Total**: {funcs.formatar_moeda(receita)}")
+
+st.markdown(f"**(-) CMV**: {funcs.formatar_moeda(cmv)}")
+
+st.markdown(f"**(-) Comissão**: {funcs.formatar_moeda(comissao)}")
+
+st.markdown(f"**(-) Operação Variável**: {funcs.formatar_moeda(op_variavel)}")
+
+margem_dre = op_variavel * 0.42
+st.markdown(f"**Margem estimada após custos fixos**: {funcs.formatar_moeda(margem_dre)}")
+
+if margem_dre < margem_contrib:
+    st.markdown(f"**Interpretação**: {funcs.formatar_moeda(margem_dre)} <= MC")
+elif margem_dre == margem-contrib:
+    st.markdown(f"**Interpretação**: {funcs.formatar_moeda(margem_dre)} = MC")
+elif margem_dre > margem_contrib:
+    st.markdown(f"**Interpretação**: {funcs.formatar_moeda(margem_dre)} >= MC")
+
+#endregion
+
+st.markdown("---")
+
+#region 8.3
+
+st.subheader("**8.3** - ***Taxa de Realização da Receita***:")
+
+mc_unitario = ticket_medio * 0.42
+st.markdown(f"**Margem unitária por pedido**: {funcs.formatar_moeda(mc_unitario)}")
+
+breakeven_50k = 50000 / mc_unitario
+st.markdown(f"**Ponto de equilíbrio para R$50.000 de margem**: {breakeven_50k:.0f} pedidos/mês")
+
+breakeven_100k = 100000 / mc_unitario
+st.markdown(f"**Ponto de equilíbrio para R$100.000 de margem**: {breakeven_100k:.0f} pedidos/mês")
+
+breakeven_200k = 200000 / mc_unitario
+st.markdown(f"**Ponto de equilíbrio para R$200.000 de margem**: {breakeven_200k:.0f} pedidos/mês")
+
+#endregion
+
+st.markdown("---")
+
+#region 8.4
+
+st.subheader("**8.4** - ***Margem Bruta do Canal (variando comissão)***")
+
+top1 = share_ordenado.iloc[0]
+receita_por_canal = status16.groupby('saleschannel')['totalamount'].sum()
+receita_por_canal = receita_por_canal.sort_values(ascending=False)
+receita_top1 = receita_por_canal.iloc[0]
+margem_top1 = receita_top1 * (1 - top1)
+st.markdown(f"**Margem do Top 1**: {funcs.formatar_moeda(receita_top1)}")
+
+receita_top2 = receita_por_canal.iloc[1]
+top2 = share_ordenado.iloc[1]
+margem_top2 = receita_top2 * (1 - top2)
+st.markdown(f"**Margem do Top 2**: {funcs.formatar_moeda(receita_top2)}")
+
+receita_top3 = receita_por_canal.iloc[2]
+top3 = share_ordenado.iloc[2]
+margem_top3 = receita_top3 * (1 - top3)
+st.markdown(f"**Margem do Top 3**: {funcs.formatar_moeda(receita_top3)}")
+
+receita_top4 = receita_por_canal.iloc[3]
+top4 = share_ordenado.iloc[3]
+margem_top4 = receita_top4 * (1 - top4)
+st.markdown(f"**Margem do Top 4**: {funcs.formatar_moeda(receita_top4)}")
+
+receita_top5 = receita_por_canal.iloc[4]
+top5 = share_ordenado.iloc[4]
+margem_top5 = receita_top5 * (1 - top5)
+st.markdown(f"**Margem do Top 4**: {funcs.formatar_moeda(receita_top5)}")
+
+st.markdown(f"{top1}")
+st.markdown(f"{top2}")
+st.markdown(f"{top3}")
+st.markdown(f"{top4}")
+st.markdown(f"{top5}")
 
 #endregion
