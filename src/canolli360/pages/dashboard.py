@@ -7,6 +7,14 @@ import cards
 import funcs
 import menu
 
+
+
+if "logado" not in st.session_state or not st.session_state.logado:
+    st.error("Acesso negado! Por favor, faça o login primeiro.")
+    if st.button("Ir para Login"):
+        st.switch_page("pages/login.py")
+    st.stop()
+
 #cache no streamlit que faz não carregar por 100 milhões de anos um calculo sempre que atualiza 
 @st.cache_data
 def carregar_dados():

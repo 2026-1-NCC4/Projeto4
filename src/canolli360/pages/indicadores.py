@@ -6,6 +6,11 @@ import numpy as np
 import menu
 import funcs
 
+
+if "logado" not in st.session_state or not st.session_state.logado:
+    st.error("Acesso negado! Por favor, faça o login primeiro.")
+    st.stop()
+
 store = pd.read_csv("dados/STORE.csv", sep=",")
 customer = pd.read_csv("dados/CUSTOMER.CSV", sep=",")
 storeorder = pd.read_csv("dados/STOREORDER.csv", sep=",")
