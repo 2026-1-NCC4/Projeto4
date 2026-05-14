@@ -22,7 +22,6 @@ def _calcular_inicio(data_max, periodo):
 
 
 #region filtros
-
 def filtrar_periodo(df, periodo, coluna_data='scheduledat'):
     df = df.copy()
     df[coluna_data] = pd.to_datetime(df[coluna_data], errors='coerce')
@@ -48,14 +47,20 @@ def receita_total(df):
     return df[df['status'] == 16]['totalamount'].sum()
 
 
+
+
 def total_pedidos(df):
     return df[df['status'] == 16]['id'].count()
+
+
 
 
 def ticket_medio(df, receita):
     df_16 = df[df['status'] == 16]
     quantidade = len(df_16)
     return receita / quantidade if quantidade > 0 else 0
+
+
 
 
 def clientes_ativos(df_orders, df_customers, periodo):
@@ -73,8 +78,13 @@ def clientes_ativos(df_orders, df_customers, periodo):
     return df_merge["customerid"].nunique()
 
 
+
+
 def mensagens_totais(Mensagens):
     return Mensagens.groupby("campaignid")["message_id"].count()
+
+
+
 
 
 def ranking_lojas(Mensagens, Stores, Campanhas):
@@ -113,9 +123,15 @@ def valor_per_mes(StoreOrder, periodo):
     )
 
     return valor_por_mes
-
 #endregion
 
+
+
+
+
+
+
+#region gráficos
 def grafico_receita_mensal(df):
     import altair as alt
     import pandas as pd
@@ -141,3 +157,5 @@ def grafico_receita_mensal(df):
     )
 
     return chart
+
+#endregion
