@@ -1,0 +1,3 @@
+[client]
+# Remove o menu nativo de páginas (evita texto estranho no topo da sidebar)
+showSidebarNavigation = false

@@ -3,7 +3,7 @@ import html
 import streamlit as st
 
 st.set_page_config(
-    page_title="Cannoli360 — BI Cannoli Foodtech",
+    page_title="Cannoli Food Tech — BI",
     layout="wide",
     initial_sidebar_state="expanded",
 )
